@@ -1,10 +1,10 @@
 .main-polls {
     background-color: var(--primary-color);
-    height: 70vh;
+    height: 100%;
     /* width: 100%; */
     display: flex;
     flex-direction: column;
-    
+    gap: 20px;
     align-items: center;
     padding: 30px;
 }
@@ -27,18 +27,22 @@ button {
 button a{
     background-color: transparent;
     text-decoration: none;
+    color: var(--primary-color);
 }
 
-.add-poll{
+.all-polls{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: transparent;
+    gap: 20px;
 }
+
 .each-poll{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
     display: flex;
     flex-direction: column;
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: var(--white);
     gap: 10px;
 }
@@ -61,7 +65,51 @@ button a{
     background-color: transparent;
 }
 .bx{
-    font-size: 18px;
+    font-size: 20px;
     color: var(--green);
     background-color: transparent;
+    cursor: pointer;
+}
+ i{
+    background-color: transparent;
+}
+@media screen and (max-width:600px) {
+    .main-polls {
+        padding: 20px;
+    }
+    
+    button {
+        height: 30px;
+        font-size: 13px;
+        width: 100px;
+        border-radius: 5px;
+    }
+    
+    .all-polls{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .each-poll{
+        padding: 15px;
+    }
+    .each-poll h3{
+        font-size: 15px;
+    }
+    .each-poll p{
+        font-size: 13px;
+    }
+    .last-part-poll{
+        margin-top: 3px;
+        gap: 10px;
+    }
+    .bx{
+        font-size: 18px;
+    }
+}
+@media only screen and (min-width:601px) and (max-width:900px) {
+    .all-polls{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
