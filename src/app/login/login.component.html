@@ -1,0 +1,18 @@
+<div class="main-login">
+    <form class="form" [formGroup]="form">
+        <h1>Login</h1>
+        <input type="text" placeholder="Email" formControlName="email">
+        <span *ngIf="form.get('email')?.touched && !form.get('email')?.valid"><i>Email is requred!!!!</i></span>
+        <input type="password" placeholder="Password" formControlName="password">
+        <span *ngIf="form.get('password')?.touched && !form.get('password')?.valid"><i>Password is requred!!!!</i></span>
+
+        <button [disabled]="!form.valid" (click)="onSubmit()">Login</button>
+
+        <p class="redirect"><a routerLink="/forgot-password">Forgot Password?</a></p>
+        <div class="sign-up-redirect">
+            <p>Dont have an account?</p>
+            <a routerLink="/register" class="sign-up">Sign Up</a>
+        </div>
+        
+    </form>
+</div>

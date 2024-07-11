@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --primary-color: #FAF9F6;
+    --black: #555D50;
+    --green: #008C51;
+    --white: #FFFFFF;
+    --secondary-color: #e8dbd470;
+    --links:#1180BE;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+   background-color: var(--secondary-color);
+    font-family: "Lato", sans-serif;
+ 
+}
+span{
+    color: red;
+    background-color: transparent;
+    margin-top: 5px;
+}
+span i{
+    color: red;
+    background-color: transparent;
+   
+}

@@ -1,0 +1,37 @@
+<div class="nav-bar">
+    <div class="part-one">
+        <img src="https://dynamic.design.com/preview/logodraft/7cdc05c9-b7cb-4f54-89e0-c4a74458fca2/image/large.png"
+            alt="logo">
+    </div>
+    <div class="part-two">
+        
+        <a routerLink="">Home</a>
+        <a routerLink="">About</a>
+        <a routerLink="#" *ngIf="!auth.showUserLinks()">Government Official</a>
+        <a routerLink="#" *ngIf="!auth.showUserLinks()">Users</a>
+        <a routerLink="#">Incidence Report</a>
+        <a routerLink="/poll">Poll</a>
+        <a routerLink="#">Views</a>
+        <a routerLink="/login" *ngIf="!auth.showStatus()">Login</a>
+        <a routerLink="#" *ngIf="auth.showStatus()">Profile</a>
+        <a *ngIf="auth.showStatus()" (click)="auth.logOut()">Logout</a>
+        <i class='bx bx-menu' (click)="navMenu()" *ngIf="!showMenu"></i>
+        <i class='bx bx-x' (click)="navMenu()" *ngIf="showMenu"></i>
+    </div>
+
+    <div class="responsive-part-two">
+        
+        <a routerLink="">Home</a>
+        <a routerLink="#">About</a>
+        <a routerLink="#" *ngIf="!auth.showUserLinks()">Government Official</a>
+        <a routerLink="#" *ngIf="!auth.showUserLinks()">Users</a>
+        <a routerLink="#">Incidence Report</a>
+        <a routerLink="/poll">Poll</a>
+        <a routerLink="#">Views</a>
+        <a routerLink="/login" *ngIf="!auth.showStatus()">Login</a>
+        <a routerLink="#" *ngIf="auth.showStatus()">Profile</a>
+        <a *ngIf="auth.showStatus()" (click)="auth.logOut()">Logout</a>
+        
+    </div>
+
+</div>
