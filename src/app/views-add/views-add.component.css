@@ -1,15 +1,14 @@
-.main-add-poll {
+.main-views-add {
     background-color: var(--primary-color);
-    height: 70vh;
-    overflow-y: scroll;
     /* width: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px;
+ 
 }
 
-.form {
+form {
     background-color: var(--white);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     padding: 35px;
@@ -26,6 +25,7 @@ h1 {
     color: var(--black);
     background-color: rgba(255, 255, 255, 0);
     font-size: 30px;
+    background-color: transparent;
 }
 
 input {
@@ -45,29 +45,11 @@ button {
     border-radius: 10px;
     font-size: 15px;
 }
-.add-option{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    background-color: transparent;
-}
-.add-option button{
-    width: 100px;
-}
-.add-input{
-    background-color: transparent;
-}
-.add-input div{
-    background-color: transparent;
-}
-.option{
-    margin-bottom: 5px;
-}
 
 
 @media only screen and (max-width: 600px) {
-    .main-add-poll {
-        height: 70vh;
+    .main-views-add {
+        padding: 25px;
     }
 
     h1 {
@@ -93,10 +75,6 @@ button {
         gap: 15px;
         padding: 25px;
         width: 85%;
-    }
-    .add-option{
-        display: block;
-        gap: 10px;
     }
 
 }

@@ -1,10 +1,8 @@
 <div class="main-one-poll">
     <div class="one-poll-container">
-        <h3>Pass the finance bill</h3>
+        <h3>{{poll.title}}</h3>
         <div class="options">
-            <label><input type="radio" name="option">Yes</label>
-            <label><input type="radio" name="option">No</label>
-            <label><input type="radio" name="option">After Review</label>
+            <label *ngFor="let option of poll.options"><input type="radio" name="option">{{option}}</label>
         </div>
     </div>
 </div>

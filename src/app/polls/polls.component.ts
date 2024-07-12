@@ -14,7 +14,7 @@ export class PollsComponent {
   polls: Poll[] = [
     {
       id: "9dcgdgf",
-      title: "Pass Finance Bill",
+      title: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
       createdBy: "Sally Gitonga",
       options: ["yes", "No"],
       votes: 5,

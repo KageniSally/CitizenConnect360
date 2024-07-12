@@ -1,0 +1,10 @@
+<div class="main-views-add">
+    <form [formGroup]="form">
+        <h1>Add Views</h1>
+        <input type="text" placeholder="Title" formControlName="title">
+        <span *ngIf="form.get('title')?.touched && !form.get('title')?.valid"><i>Title is requred!!!!</i></span>
+        <input type="text" placeholder="Description" formControlName="description">
+        <span *ngIf="form.get('description')?.touched && !form.get('description')?.valid"><i>Description is requred!!!!</i></span>
+        <button [disabled]="form.invalid" (click)="onSubmit()">Add View</button>
+    </form>
+</div>

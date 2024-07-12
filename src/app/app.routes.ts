@@ -8,6 +8,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { PollsComponent } from './polls/polls.component';
 import { PollAddComponent } from './poll-add/poll-add.component';
 import { OnePollComponent } from './one-poll/one-poll.component';
+import { ViewsComponent } from './views/views.component';
+import { IncidenceDisplayComponent } from './incidence-display/incidence-display.component';
+import { IncidenceAddComponent } from './incidence-add/incidence-add.component';
 
 
 export const routes: Routes = [
@@ -17,12 +20,21 @@ export const routes: Routes = [
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'reset-password', component: ResetPasswordComponent },
     {
-        path: 'poll', children: [
+        path: 'poll', canActivate: [authGuard],children: [
             { path: '', component: PollsComponent },
             { path: 'add-poll', component: PollAddComponent },
             { path: ':id', component: OnePollComponent }
         ]
-    }
+    },
+    { path: 'views', component: ViewsComponent },
+
+
+    {
+        path: 'incidence', children: [
+            { path: '', component: IncidenceDisplayComponent },
+            { path: 'add-incidence', component: IncidenceAddComponent }
+        ]
+    },
 ];
 
 // canActivate: [authGuard]

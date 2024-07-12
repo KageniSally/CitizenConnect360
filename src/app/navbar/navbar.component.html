@@ -9,9 +9,9 @@
         <a routerLink="">About</a>
         <a routerLink="#" *ngIf="!auth.showUserLinks()">Government Official</a>
         <a routerLink="#" *ngIf="!auth.showUserLinks()">Users</a>
-        <a routerLink="#">Incidence Report</a>
+        <a routerLink="/incidence">Incidence Report</a>
         <a routerLink="/poll">Poll</a>
-        <a routerLink="#">Views</a>
+        <a routerLink="/views">Views</a>
         <a routerLink="/login" *ngIf="!auth.showStatus()">Login</a>
         <a routerLink="#" *ngIf="auth.showStatus()">Profile</a>
         <a *ngIf="auth.showStatus()" (click)="auth.logOut()">Logout</a>
@@ -25,9 +25,9 @@
         <a routerLink="#">About</a>
         <a routerLink="#" *ngIf="!auth.showUserLinks()">Government Official</a>
         <a routerLink="#" *ngIf="!auth.showUserLinks()">Users</a>
-        <a routerLink="#">Incidence Report</a>
+        <a routerLink="/incidence">Incidence Report</a>
         <a routerLink="/poll">Poll</a>
-        <a routerLink="#">Views</a>
+        <a routerLink="/views">Views</a>
         <a routerLink="/login" *ngIf="!auth.showStatus()">Login</a>
         <a routerLink="#" *ngIf="auth.showStatus()">Profile</a>
         <a *ngIf="auth.showStatus()" (click)="auth.logOut()">Logout</a>
