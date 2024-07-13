@@ -19,7 +19,7 @@
             </label>
         </div>
         <div >
-            <p class="redirect">Terms and conditions</p>
+            <p class="redirect"><a routerLink="/terms-and-conditions">Terms and conditions</a></p>
             <label class="terms-conditions"><input type="checkbox">I agree to the terms and conditions</label>
         </div>
         <button [disabled]="!form.valid" (click)="onSubmit()">Sign Up</button>

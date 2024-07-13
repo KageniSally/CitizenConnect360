@@ -7,13 +7,13 @@
         
         <a routerLink="">Home</a>
         <a routerLink="">About</a>
-        <a routerLink="#" *ngIf="!auth.showUserLinks()">Government Official</a>
-        <a routerLink="#" *ngIf="!auth.showUserLinks()">Users</a>
-        <a routerLink="/incidence">Incidence Report</a>
-        <a routerLink="/poll">Poll</a>
-        <a routerLink="/views">Views</a>
+        <a routerLink="/government-admin" *ngIf="!auth.showUserLinks()">Government Official</a>
+        <a routerLink="/users-admin" *ngIf="!auth.showUserLinks()">Users</a>
+        <a routerLink="/incidence" *ngIf="auth.showUserLinks()">Incidence Report</a>
+        <a routerLink="/poll" *ngIf="auth.showUserLinks()">Poll</a>
+        <a routerLink="/views" *ngIf="auth.showUserLinks()">Views</a>
         <a routerLink="/login" *ngIf="!auth.showStatus()">Login</a>
-        <a routerLink="#" *ngIf="auth.showStatus()">Profile</a>
+        <a routerLink="/profile/{{user?.id}}" *ngIf="auth.showStatus()">Profile</a>
         <a *ngIf="auth.showStatus()" (click)="auth.logOut()">Logout</a>
         <i class='bx bx-menu' (click)="navMenu()" *ngIf="!showMenu"></i>
         <i class='bx bx-x' (click)="navMenu()" *ngIf="showMenu"></i>
@@ -22,14 +22,14 @@
     <div class="responsive-part-two">
         
         <a routerLink="">Home</a>
-        <a routerLink="#">About</a>
-        <a routerLink="#" *ngIf="!auth.showUserLinks()">Government Official</a>
-        <a routerLink="#" *ngIf="!auth.showUserLinks()">Users</a>
-        <a routerLink="/incidence">Incidence Report</a>
-        <a routerLink="/poll">Poll</a>
-        <a routerLink="/views">Views</a>
+        <a routerLink="">About</a>
+        <a routerLink="/government-admin" *ngIf="!auth.showUserLinks()">Government Official</a>
+        <a routerLink="/users-admin" *ngIf="!auth.showUserLinks()">Users</a>
+        <a routerLink="/incidence" *ngIf="auth.showUserLinks()">Incidence Report</a>
+        <a routerLink="/poll" *ngIf="auth.showUserLinks()"> Poll</a>
+        <a routerLink="/views" *ngIf="auth.showUserLinks()">Views</a>
         <a routerLink="/login" *ngIf="!auth.showStatus()">Login</a>
-        <a routerLink="#" *ngIf="auth.showStatus()">Profile</a>
+        <a routerLink="/profile/{{user?.id}}" *ngIf="auth.showStatus()">Profile</a>
         <a *ngIf="auth.showStatus()" (click)="auth.logOut()">Logout</a>
         
     </div>

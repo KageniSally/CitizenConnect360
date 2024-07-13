@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
+import { User } from '../../Models/authModel';
 
 @Component({
   selector: 'app-navbar',
@@ -12,8 +13,25 @@ import { AuthService } from '../../Services/auth.service';
 })
 export class NavbarComponent {
   showMenu: boolean = false
+  user: User | undefined;
 
   constructor(public auth: AuthService) { }
+
+
+  ngOnInit(): void {
+    const email = localStorage.getItem('email');
+    console.log(email);
+    if (email) {
+      this.user = this.auth.getUserByEmail(email);
+      if (!this.user) {
+        console.error('No user found for this email');
+        // Handle no user case, maybe redirect or show a message
+      }
+    } else {
+      console.error('No email found in localStorage');
+      // Handle no email case, maybe redirect to login
+    }
+  }
 
   navMenu() {
     this.showMenu = !this.showMenu

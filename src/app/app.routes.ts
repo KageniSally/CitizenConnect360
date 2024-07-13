@@ -8,9 +8,13 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { PollsComponent } from './polls/polls.component';
 import { PollAddComponent } from './poll-add/poll-add.component';
 import { OnePollComponent } from './one-poll/one-poll.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { ProfileComponent } from './profile/profile.component';
 import { ViewsComponent } from './views/views.component';
 import { IncidenceDisplayComponent } from './incidence-display/incidence-display.component';
 import { IncidenceAddComponent } from './incidence-add/incidence-add.component';
+import { UsersAdminComponent } from './users-admin/users-admin.component';
+import { GovernmentAdminComponent } from './government-admin/government-admin.component';
 
 
 export const routes: Routes = [
@@ -20,21 +24,29 @@ export const routes: Routes = [
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'reset-password', component: ResetPasswordComponent },
     {
-        path: 'poll', canActivate: [authGuard],children: [
+        path: 'poll', canActivate: [authGuard], children: [
             { path: '', component: PollsComponent },
             { path: 'add-poll', component: PollAddComponent },
             { path: ':id', component: OnePollComponent }
         ]
     },
-    { path: 'views', component: ViewsComponent },
+    { path: 'views', canActivate: [authGuard],component: ViewsComponent },
 
 
     {
-        path: 'incidence', children: [
+        path: 'incidence',canActivate: [authGuard], children: [
             { path: '', component: IncidenceDisplayComponent },
             { path: 'add-incidence', component: IncidenceAddComponent }
         ]
     },
+    { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
+    {
+        path: 'profile',canActivate: [authGuard], children: [
+            { path: ':id', component: ProfileComponent }
+        ]
+    },
+    {path:'users-admin',component:UsersAdminComponent},
+    {path:'government-admin',component:GovernmentAdminComponent}
 ];
 
 // canActivate: [authGuard]

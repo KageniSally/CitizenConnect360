@@ -28,9 +28,11 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(){
-    console.log(this.form)
+    console.log(this.form.value)
+    localStorage.setItem("email",this.form.value.email)
     this.router.navigate([''])
     this.auth.login()
     console.log(this.auth.showStatus())
+   
   }
 }

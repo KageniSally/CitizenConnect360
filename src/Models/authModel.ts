@@ -3,9 +3,10 @@ export interface User{
     name: string,
     email: string,
     password: string,
-    role_id: number,
+    role_id: string,
     isEmailSent: number,
     isDeleted: number,
+    isApproved:number,
     profile_image:string
 }
 

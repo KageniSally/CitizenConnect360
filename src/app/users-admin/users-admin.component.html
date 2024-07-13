@@ -1,0 +1,26 @@
+<div class="main-admin-users">
+    <div class="table-display">
+        <table *ngIf="users; else noUsers" id="users-table">
+            <thead>
+                <tr>
+                    <th>UserID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td><i class='bx bxs-trash'></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ng-template #noUsers>
+        <i>No Users Yet!!!</i>
+    </ng-template>
+</div>

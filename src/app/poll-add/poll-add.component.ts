@@ -16,7 +16,9 @@ constructor(private fb:FormBuilder){}
 ngOnInit(): void {
  this.form=new FormGroup({
   title:this.fb.control(null,Validators.required),
-  options: this.fb.array([]),
+  options: this.fb.array([
+    this.fb.control(null,Validators.required)
+  ])
  })
 }
 

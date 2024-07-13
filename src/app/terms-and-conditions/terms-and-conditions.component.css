@@ -1,0 +1,47 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--primary-color);
+}
+
+.main-terms-and-conditions {
+    background-color: var(--secondary-color);
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    color: var(--black);
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    background-color: transparent;
+    color: var(--black);
+}
+
+p {
+    line-height: 1.5;
+    background-color: transparent;
+    color: var(--black);
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+
+    p{
+        font-size: 13px;
+    }
+}

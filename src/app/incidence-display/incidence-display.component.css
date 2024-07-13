@@ -1,0 +1,113 @@
+.main-incidence-display {
+    background-color: var(--primary-color);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation {
+    padding: 15px 0px 15px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    gap: 15px;
+}
+
+h6 {
+    font-size: 18px;
+    color: var(--green);
+    background-color: transparent;
+}
+
+h6 a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--green);
+    background-color: transparent;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.display-container {
+    background-color: var(--primary-color);
+    padding: 10px;
+}
+
+.inner-display-container {
+    background-color: var(--secondary-color);
+    display: grid;
+    justify-content: center;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px 20px 15px 20px;
+}
+
+.each-incidence {
+    padding: 10px;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+img {
+    width: 100%;
+}
+
+.details {
+    /* background-color: transparent; */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background-color: rgba(0, 255, 255, 0);
+    margin: 15px 10px 0px 10px;
+}
+
+.title {
+    font-size: 15px;
+    background-color: transparent;
+}
+
+p {
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--black);
+}
+
+.last-thing-incidence {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgba(0, 0, 255, 0);
+    /* background-color: rgba(0, 255, 255, 0); */
+    margin: 20px 20px 0px 20px;
+}
+
+.last-thing-incidence .name {
+    font-size: 15px;
+    color: var(--green);
+    font-weight: 600;
+}
+.small{
+font-size: 13px;
+color: var(--black);
+font-style: italic;
+font-weight: 700;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    .inner-display-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 15px 20px 15px 20px;
+    }
+}
