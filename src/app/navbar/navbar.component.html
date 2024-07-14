@@ -1,4 +1,5 @@
 <div class="nav-bar">
+    <!-- <p>{{}}</p> -->
     <div class="part-one">
         <img src="https://dynamic.design.com/preview/logodraft/7cdc05c9-b7cb-4f54-89e0-c4a74458fca2/image/large.png"
             alt="logo">
@@ -12,8 +13,9 @@
         <a routerLink="/incidence" *ngIf="auth.showUserLinks()">Incidence Report</a>
         <a routerLink="/poll" *ngIf="auth.showUserLinks()">Poll</a>
         <a routerLink="/views" *ngIf="auth.showUserLinks()">Views</a>
+        <a routerLink="/educate" *ngIf="auth.showUserLinks()">Educate</a>
         <a routerLink="/login" *ngIf="!auth.showStatus()">Login</a>
-        <a routerLink="/profile/{{user?.id}}" *ngIf="auth.showStatus()">Profile</a>
+        <a routerLink="/profile" *ngIf="auth.showStatus()">Profile</a>
         <a *ngIf="auth.showStatus()" (click)="auth.logOut()">Logout</a>
         <i class='bx bx-menu' (click)="navMenu()" *ngIf="!showMenu"></i>
         <i class='bx bx-x' (click)="navMenu()" *ngIf="showMenu"></i>
@@ -28,8 +30,9 @@
         <a routerLink="/incidence" *ngIf="auth.showUserLinks()">Incidence Report</a>
         <a routerLink="/poll" *ngIf="auth.showUserLinks()"> Poll</a>
         <a routerLink="/views" *ngIf="auth.showUserLinks()">Views</a>
+        <a routerLink="/educate" *ngIf="auth.showUserLinks()">Educate</a>
         <a routerLink="/login" *ngIf="!auth.showStatus()">Login</a>
-        <a routerLink="/profile/{{user?.id}}" *ngIf="auth.showStatus()">Profile</a>
+        <a routerLink="/profile" *ngIf="auth.showStatus()">Profile</a>
         <a *ngIf="auth.showStatus()" (click)="auth.logOut()">Logout</a>
         
     </div>

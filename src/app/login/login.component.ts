@@ -5,6 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../State';
+import { User } from '../../Models/authModel';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,9 @@ import { AppState } from '../State';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  constructor(private fb: FormBuilder,private router:Router,public auth:AuthService, private store:Store<AppState>) { }
+  constructor(private fb: FormBuilder,private router:Router,public auth:AuthService) { }
   form!: FormGroup
+
 
 
   ngOnInit() {
@@ -32,7 +34,13 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("email",this.form.value.email)
     this.router.navigate([''])
     this.auth.login()
-    console.log(this.auth.showStatus())
+    console.log(this.auth.showStatus());
+    this.auth.functionalityRole()
+
+  
+    
+  
+        }
    
   }
-}
+

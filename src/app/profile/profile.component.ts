@@ -11,21 +11,39 @@ import { Router } from '@angular/router';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent implements OnInit {
-  user!: User 
+  user: User | null = null; 
 
+  constructor(public auth: AuthService) { }
 
-  
-  constructor(private auth:AuthService,private router:Router){}
 
   ngOnInit(): void {
-    let email = localStorage.getItem("email");
-    console.log(email)
+    const email = localStorage.getItem('email');
+    console.log(email);
     if (email) {
-      // this.auth.getUserByEmail(email)
-    }  else {
-      console.error('No email found in localStorage');
+      this.user = this.auth.getUserByEmail(email) || null;
+      console.log(this.user);
+      
     }
   }
 
+  role(){
+    let role=this.user?.role_id
+      
+      if(role==="1"){
+        localStorage.setItem("role","Admin")
+        return "Admin"
+      }else if(role==="2"){
+      localStorage.setItem("role","Government Official")
+      return "Government Official"
+      }
+      else if(role==="3"){
+        localStorage.setItem("role","Normal User")
+        return "Normal User"
+      }else{
+        return "User Not Found"
+      }
+
+      }
+  }
   
-}
+

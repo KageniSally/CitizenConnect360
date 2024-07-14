@@ -15,6 +15,8 @@ import { IncidenceDisplayComponent } from './incidence-display/incidence-display
 import { IncidenceAddComponent } from './incidence-add/incidence-add.component';
 import { UsersAdminComponent } from './users-admin/users-admin.component';
 import { GovernmentAdminComponent } from './government-admin/government-admin.component';
+import { EducateComponent } from './educate/educate.component';
+import { SummaryViewComponent } from './summary-view/summary-view.component';
 
 
 export const routes: Routes = [
@@ -31,7 +33,7 @@ export const routes: Routes = [
         ]
     },
     { path: 'views', canActivate: [authGuard],component: ViewsComponent },
-
+    {path:'view-summary',component:SummaryViewComponent},
 
     {
         path: 'incidence',canActivate: [authGuard], children: [
@@ -41,12 +43,11 @@ export const routes: Routes = [
     },
     { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
     {
-        path: 'profile',canActivate: [authGuard], children: [
-            { path: ':id', component: ProfileComponent }
-        ]
-    },
+        path: 'profile',canActivate: [authGuard], component:ProfileComponent},
     {path:'users-admin',component:UsersAdminComponent},
-    {path:'government-admin',component:GovernmentAdminComponent}
+    {path:'government-admin',component:GovernmentAdminComponent},
+    {path:'educate',component:EducateComponent},
+    
 ];
 
 // canActivate: [authGuard]

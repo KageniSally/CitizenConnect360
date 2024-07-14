@@ -67,6 +67,7 @@ export class AuthService {
   private isLoggedIn = false
   private isUser = false
   private readonly BaseURL = ''
+  public isAdmin = false
 
   login() {
     this.isLoggedIn = true
@@ -81,8 +82,28 @@ export class AuthService {
     return this.isLoggedIn
   }
   showUserLinks() {
-    return this.isUser
+    return !this.isUser
   }
+  // Admin() {
+  //   return this.isAdmin=!this.isAdmin
+  // }
+
+  functionalityRole() {
+    let userEmail = localStorage.getItem("email")
+    if (userEmail) {
+      if (userEmail === "gitongasally@gmail.com") {
+        console.log("Admin")
+
+        return !this.isAdmin
+      }
+      return this.isAdmin
+    }
+    return this.isAdmin
+  }
+
+
+
+
 
 
 
