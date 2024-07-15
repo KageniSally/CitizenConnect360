@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     this.router.navigate([''])
     this.auth.login()
     console.log(this.auth.showStatus());
-    this.auth.functionalityRole()
 
   
     

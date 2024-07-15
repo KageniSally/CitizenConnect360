@@ -8,8 +8,8 @@
         
         <a routerLink="">Home</a>
         <a routerLink="">About</a>
-        <a routerLink="/government-admin" *ngIf="!auth.showUserLinks()">Government Official</a>
-        <a routerLink="/users-admin" *ngIf="!auth.showUserLinks()">Users</a>
+        <a routerLink="/government-admin" *ngIf="auth.showUserLinks()">Government Official</a>
+        <a routerLink="/users-admin" *ngIf="auth.showUserLinks()">Users</a>
         <a routerLink="/incidence" *ngIf="auth.showUserLinks()">Incidence Report</a>
         <a routerLink="/poll" *ngIf="auth.showUserLinks()">Poll</a>
         <a routerLink="/views" *ngIf="auth.showUserLinks()">Views</a>
@@ -25,8 +25,8 @@
         
         <a routerLink="">Home</a>
         <a routerLink="">About</a>
-        <a routerLink="/government-admin" *ngIf="!auth.showUserLinks()">Government Official</a>
-        <a routerLink="/users-admin" *ngIf="!auth.showUserLinks()">Users</a>
+        <a routerLink="/government-admin" *ngIf="auth.showUserLinks()">Government Official</a>
+        <a routerLink="/users-admin" *ngIf="auth.showUserLinks()">Users</a>
         <a routerLink="/incidence" *ngIf="auth.showUserLinks()">Incidence Report</a>
         <a routerLink="/poll" *ngIf="auth.showUserLinks()"> Poll</a>
         <a routerLink="/views" *ngIf="auth.showUserLinks()">Views</a>

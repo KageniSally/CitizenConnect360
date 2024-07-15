@@ -84,33 +84,9 @@ export class AuthService {
   showUserLinks() {
     return !this.isUser
   }
-  // Admin() {
-  //   return this.isAdmin=!this.isAdmin
-  // }
-
-  functionalityRole() {
-    let userEmail = localStorage.getItem("email")
-    if (userEmail) {
-      if (userEmail === "gitongasally@gmail.com") {
-        console.log("Admin")
-
-        return !this.isAdmin
-      }
-      return this.isAdmin
-    }
-    return this.isAdmin
-  }
 
 
-
-
-
-
-
-
-
-
-  registerUser(newUser: User): Observable<RegisterResponse> {
+    registerUser(newUser: User): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>(this.BaseURL + "register", newUser)
 
   }

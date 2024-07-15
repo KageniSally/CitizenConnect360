@@ -32,22 +32,23 @@ export const routes: Routes = [
             { path: ':id', component: OnePollComponent }
         ]
     },
-    { path: 'views', canActivate: [authGuard],component: ViewsComponent },
-    {path:'view-summary',component:SummaryViewComponent},
+    { path: 'views', canActivate: [authGuard], component: ViewsComponent },
+    { path: 'view-summary', component: SummaryViewComponent },
 
     {
-        path: 'incidence',canActivate: [authGuard], children: [
+        path: 'incidence', canActivate: [authGuard], children: [
             { path: '', component: IncidenceDisplayComponent },
             { path: 'add-incidence', component: IncidenceAddComponent }
         ]
     },
     { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
     {
-        path: 'profile',canActivate: [authGuard], component:ProfileComponent},
-    {path:'users-admin',component:UsersAdminComponent},
-    {path:'government-admin',component:GovernmentAdminComponent},
-    {path:'educate',component:EducateComponent},
-    
+        path: 'profile', canActivate: [authGuard], component: ProfileComponent
+    },
+    { path: 'users-admin', canActivate: [authGuard],component: UsersAdminComponent },
+    { path: 'government-admin',canActivate: [authGuard], component: GovernmentAdminComponent },
+    { path: 'educate',canActivate: [authGuard], component: EducateComponent },
+
 ];
 
 // canActivate: [authGuard]
