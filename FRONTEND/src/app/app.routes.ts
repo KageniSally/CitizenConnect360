@@ -17,6 +17,7 @@ import { UsersAdminComponent } from './users-admin/users-admin.component';
 import { GovernmentAdminComponent } from './government-admin/government-admin.component';
 import { EducateComponent } from './educate/educate.component';
 import { SummaryViewComponent } from './summary-view/summary-view.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 
 export const routes: Routes = [
@@ -43,7 +44,10 @@ export const routes: Routes = [
     },
     { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
     {
-        path: 'profile', canActivate: [authGuard], component: ProfileComponent
+        path: 'profile', canActivate: [authGuard],children:[
+            {path:'',component: ProfileComponent},
+            {path:'edit-user',component: EditUserComponent}
+        ] 
     },
     { path: 'users-admin', canActivate: [authGuard],component: UsersAdminComponent },
     { path: 'government-admin',canActivate: [authGuard], component: GovernmentAdminComponent },

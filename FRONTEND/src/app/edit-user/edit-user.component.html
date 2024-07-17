@@ -1,0 +1,17 @@
+<div class="main-edit-user">
+    <form class="form" [formGroup]="form">
+        <h1>Edit User</h1>
+        <input type="file" placeholder="Profile Picture" formControlName="photo">
+        <span *ngIf="form.get('photo')?.touched && !form.get('photo')?.valid"><i>Photo is requred!!!!</i></span>
+        <input type="text" placeholder="Email" formControlName="email">
+        <span *ngIf="form.get('email')?.touched && !form.get('email')?.valid"><i>Email is requred!!!!</i></span>
+        <input type="password" placeholder="Password" formControlName="password">
+        <span *ngIf="form.get('password')?.touched && !form.get('password')?.valid"><i>Password is
+                requred!!!!</i></span>
+
+        <button [disabled]="!form.valid" (click)="onSubmit()">Edit</button>
+
+
+
+    </form>
+</div>

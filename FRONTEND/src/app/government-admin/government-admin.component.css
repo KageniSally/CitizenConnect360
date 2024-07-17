@@ -8,8 +8,15 @@
 }
 
 .bx {
-    color: var(--green);
+    color: red;
+    margin-left: 10px;
     font-size: 18px;
+    background-color: transparent;
+}
+tbody{
+    background-color: transparent;
+}
+thead{
     background-color: transparent;
 }
 
@@ -26,6 +33,7 @@ table {
     border: none;
     width: 100%;
     border-radius: 10px;
+    /* border: 1px solid var(--black); */
 }
 
 table th {
@@ -36,6 +44,7 @@ table th {
     width: 15%;
     height: 20px;
     color: var(--black);
+    border: 1px solid rgba(128, 128, 128, 0.637);
 }
 
 td {
@@ -44,11 +53,19 @@ td {
     font-weight: 300;
     font-size: 13px;
     height: 20px;
+    border: 1px solid var(--grey);
    
 }
 tr{
-    background-color: transparent;
-    height: 20px;
+    background-color:var(--white);
+    height: 35px;
+    padding: 5px;
+    /* display: flex;
+    gap: 5px; */
+  
+}
+tr:nth-child(even){
+    background-color: var(--secondary-color);
 }
 
 
@@ -57,9 +74,9 @@ button {
     background-color: var(--green);
     border: none;
     height: 25px;
-    border-radius: 10px;
-    font-size: 15px;
-    width: 100px;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 0px 5px 0px 5px;
 }
 @media only screen and (max-width: 600px){
    
@@ -70,6 +87,7 @@ button {
     
     .table-display {
         width: 80vw;
+        overflow-x: scroll;
          
     }
     

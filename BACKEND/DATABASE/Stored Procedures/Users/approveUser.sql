@@ -1,0 +1,5 @@
+CREATE OR ALTER PROCEDURE approveUser(@id VARCHAR(255))
+AS
+BEGIN
+UPDATE Users SET isApproved=1 WHERE id=@id
+END

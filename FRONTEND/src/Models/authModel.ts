@@ -10,6 +10,7 @@ export interface User{
     profile_image:string
 }
 
+
 export interface RegisterResponse{
    message:string 
 }

@@ -14,13 +14,15 @@ export class RegisterComponent {
   constructor(private fb: FormBuilder) { }
   form!: FormGroup
     errorPassword:string='Required'
-
+  roles=['Government Official','Citizen']
 
   ngOnInit() {
     this.form = new FormGroup({
       username:this.fb.control(null,Validators.required),
       email: this.fb.control(null, [Validators.required, Validators.email]),
-      password: this.fb.control(null,[this.passwordValidator.bind(this),Validators.required] )
+      password: this.fb.control(null,[this.passwordValidator.bind(this),Validators.required] ),
+      role:this.fb.control(null,Validators.required),
+      terms:this.fb.control(false,Validators.requiredTrue)
     })
   }
 

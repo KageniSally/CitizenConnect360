@@ -1,0 +1,5 @@
+CREATE OR ALTER PROCEDURE getUserNotApproved
+AS
+BEGIN
+SELECT * FROM Users WHERE isApproved=0
+END

@@ -9,18 +9,19 @@
         <input type="password" placeholder="Password" formControlName="password">
         <span *ngIf="form.get('password')?.touched && !form.get('password')?.valid"><i>Password is
                 {{errorPassword}}!!!!</i></span>
-        <div class="role-div">
-            <label class="role" style="color: var(--green); font-weight: 700; ">Register as </label>
+                <label class="role" style="color: var(--green); font-weight: 700; ">Register as </label>
+        <div class="role-div" *ngFor="let role of roles">
+            
             <label class="role">
-                <input type="radio" name="role" value="government" formControlName="role"> Government Official
+                <input type="radio" name="role" value="government" formControlName="role" value="{{role}}" > {{role}}
             </label>
-            <label class="role">
+            <!-- <label class="role">
                 <input type="radio" name="role" value="user" formControlName="role"> User
-            </label>
+            </label> -->
         </div>
         <div >
             <p class="redirect"><a routerLink="/terms-and-conditions">Terms and conditions</a></p>
-            <label class="terms-conditions"><input type="checkbox">I agree to the terms and conditions</label>
+            <label class="terms-conditions"><input type="checkbox" formControlName="terms">I agree to the terms and conditions</label>
         </div>
         <button [disabled]="!form.valid" (click)="onSubmit()">Sign Up</button>
 
