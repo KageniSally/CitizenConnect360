@@ -1,0 +1,7 @@
+CREATE OR ALTER PROCEDURE getIncident(
+    @id VARCHAR(255)
+)
+AS
+BEGIN
+SELECT * FROM Incidents WHERE id=@id
+END

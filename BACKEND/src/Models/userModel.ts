@@ -7,7 +7,7 @@ export interface User {
     isEmailSent: number,
     isDeleted: number,
     isApproved:number,
-    profile_image:string
+    profileImage:string
 }
 
 export interface Payload {

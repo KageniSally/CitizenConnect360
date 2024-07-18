@@ -1,5 +1,5 @@
 CREATE OR ALTER PROCEDURE getUserNotApproved
 AS
 BEGIN
-SELECT * FROM Users WHERE isApproved=0
+SELECT * FROM Users WHERE isApproved=0 AND isDeleted=0
 END

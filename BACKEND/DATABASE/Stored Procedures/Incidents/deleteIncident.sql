@@ -1,0 +1,5 @@
+CREATE OR ALTER PROCEDURE deleteIncident(@id VARCHAR(255))
+AS
+BEGIN
+DELETE FROM Incidents WHERE id=@id
+END

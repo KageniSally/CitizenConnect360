@@ -3,8 +3,8 @@ POST http://localhost:1000/users/register
 Content-Type: application/json
 
 {
-    "name":"Edith",
-    "email":"edith@gmail.com",
+    "name":"Rachel",
+    "email":"rachel@gmail.com",
     "password":"Qwerty@401",
     "role":"Government Official"
 }

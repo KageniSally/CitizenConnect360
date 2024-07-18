@@ -53,11 +53,10 @@ export async function registerUser(req: Request, res: Response) {
 export async function loginUser(req: Request<{ email: string }>, res: Response) {
     try {
         const { email, password } = req.body
-        console.log(req.body)
+        // console.log(req.body)
 
 
         const user = (await dbInstance.execute('getUser', { email: email })).recordset as User[]
-        console.log(user)
 
         if (user.length !== 0) {
             const isValid = await Bcrypt.compare(password, user[0].password)
@@ -81,6 +80,7 @@ export async function loginUser(req: Request<{ email: string }>, res: Response) 
 
                 return res.status(200).json({ message: 'Login sucessful!!!!!!!', token, role, sub })
             }
+            return res.status(400).json({message:"Invalid Password"})
 
         }
 
@@ -94,6 +94,7 @@ export async function forgotPassword(req: Request<{ email: string }>, res: Respo
     console.log("here");
     
     try {
+        
         //get user by email
         const user = (await dbInstance.execute('getUser', { email: req.params.email })).recordset[0] as User
 
@@ -107,6 +108,7 @@ export async function forgotPassword(req: Request<{ email: string }>, res: Respo
 
 
             await dbInstance.execute('forgotPass', {
+                email:req.params.email,
                 password: hashedPass
             })
 
