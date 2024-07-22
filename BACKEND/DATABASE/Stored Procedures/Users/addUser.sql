@@ -4,7 +4,7 @@ CREATE OR ALTER PROCEDURE addUser
     @email VARCHAR(255),
     @password VARCHAR(255),
     @role VARCHAR(255),
-    @isApproved INT OUTPUT
+    @isApproved INT OUTPUT 
 AS
 BEGIN
     IF @role = 'Government Official'

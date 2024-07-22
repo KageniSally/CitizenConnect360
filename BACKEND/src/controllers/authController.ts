@@ -5,7 +5,6 @@ import Bcrypt from 'bcrypt'
 import { DBHelper } from '../DBHelpers'
 import jwt from 'jsonwebtoken'
 import { Payload, User } from "../Models/userModel"
-import { log } from "console"
 
 //Instance of the class
 const dbInstance = new DBHelper

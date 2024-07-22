@@ -3,6 +3,7 @@ import authRoutes from './Routes/authRoutes'
 import userRoutes from './Routes/userRoutes'
 import viewRoutes from './Routes/viewRoutes'
 import incidentsRoutes from './Routes/incidentsRoutes'
+import pollRoutes from './Routes/pollRoutes'
 
 const app=express()
 
@@ -14,11 +15,12 @@ app.use('/users',authRoutes)
 app.use('/users',userRoutes)
 app.use('/views',viewRoutes)
 app.use('/incidents',incidentsRoutes)
+app.use('/polls',pollRoutes)
 
 
 
 app.listen(1000,()=>{
-    console.log("CitizenConnect360.......")
+    console.log("CitizenConnect360............")
 })
 
 

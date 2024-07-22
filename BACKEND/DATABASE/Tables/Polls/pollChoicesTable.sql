@@ -1,0 +1,8 @@
+USE CitizenConnect360
+
+CREATE TABLE pollChoices(
+    id VARCHAR(255) PRIMARY KEY,
+    choice VARCHAR(255) NOT NULL,
+    pollId VARCHAR(255),
+    FOREIGN KEY (pollId) REFERENCES Polls(id) ON DELETE CASCADE
+)

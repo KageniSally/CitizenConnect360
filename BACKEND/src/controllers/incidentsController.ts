@@ -1,4 +1,5 @@
 import { DBHelper } from "../DBHelpers";
+import { ExtendedRequest1 } from "../Middleware";
 import { Incidents } from "../Models/incidents";
 import { Request,Response } from "express";
 import {v4 as uid} from 'uuid'
@@ -29,10 +30,11 @@ export async function getIncident(req:Request<{id:string}>,res:Response){
 
 
 //Function to add Incidence
-export async function addIncidence(req:Request,res:Response) {
+export async function addIncidence(req:ExtendedRequest1,res:Response) {
     try {
         const id=uid()
-        const {title,description,area,image,contact,reportedBy}=req.body
+        const reportedBy=req.info.sub
+        const {title,description,area,image,contact}=req.body
         dbInstance.execute('addIncidence',{id,title,description,area,image,contact,reportedBy})
         return res.status(201).json("Incidence created sucessfully")
     } catch (error) {

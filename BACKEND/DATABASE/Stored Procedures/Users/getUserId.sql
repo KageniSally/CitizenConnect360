@@ -1,5 +1,5 @@
 CREATE OR ALTER PROCEDURE getUserId(@id VARCHAR(255))
 AS
 BEGIN
-SELECT * FROM Users WHERE id=@id
+SELECT * FROM Users WHERE id=@id AND isDeleted=0
 END

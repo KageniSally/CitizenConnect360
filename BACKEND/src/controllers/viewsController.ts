@@ -2,14 +2,16 @@ import { DBHelper } from "../DBHelpers";
 import { v4 as uid } from 'uuid'
 import { Request, Response } from "express";
 import { View } from "../Models/viewModel";
+import { ExtendedRequest1 } from "../Middleware";
 
 const dbInstance = new DBHelper
 
 //Function to add a view
-export async function addView(req: Request, res: Response) {
+export async function addView(req: ExtendedRequest1, res: Response) {
    try {
       const id = uid()
-      const { title, description, user_id } = req.body
+      const user_id=req.info.sub
+      const { title, description} = req.body
       console.log(id);
       
       

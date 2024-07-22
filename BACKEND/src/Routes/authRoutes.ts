@@ -6,7 +6,7 @@ const authRoutes=Router()
 
 authRoutes.post('/register',registerUser)
 authRoutes.post('/login',loginUser)
-authRoutes.patch('/forgotPass/:email',forgotPassword)
+authRoutes.put('/forgotPass/:email',forgotPassword)
 
 
 

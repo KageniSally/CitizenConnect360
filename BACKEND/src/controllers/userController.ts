@@ -30,6 +30,7 @@ export async function deleteUser(req: Request<{ id: string }>, res: Response) {
         const user = (await dbInstance.execute('getUserId', { id: req.params.id })).recordset[0] as User
         if (user && user.id) {
             await dbInstance.execute('deleteUser', { id: req.params.id })
+
             return res.status(200).json({ message: "User Deleted Successfully" })
         }
 
@@ -39,6 +40,7 @@ export async function deleteUser(req: Request<{ id: string }>, res: Response) {
         return res.status(500).json(error)
     }
 }
+
 
 
 //function to get all users that havent been approved
