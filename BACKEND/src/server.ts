@@ -4,12 +4,18 @@ import userRoutes from './Routes/userRoutes'
 import viewRoutes from './Routes/viewRoutes'
 import incidentsRoutes from './Routes/incidentsRoutes'
 import pollRoutes from './Routes/pollRoutes'
+import cors from "cors"
 
 const app=express()
 
+
+//Connection of different ports
+app.use(cors())
+
+
+
 //middleware
 app.use(json())
-
 
 app.use('/users',authRoutes)
 app.use('/users',userRoutes)

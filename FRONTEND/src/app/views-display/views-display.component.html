@@ -1,5 +1,5 @@
-<div class="main-display-views" *ngIf="views.length; else noViews">
-    <div class="each-view" *ngFor="let view of views">
+<div class="main-display-views" *ngIf="(views$|async); else noViews">
+    <div class="each-view" *ngFor="let view of views$|async">
         <div class="user-deets">
             <i class='bx bxs-user-circle' ></i>
             <h6>Sally Gitonga</h6>

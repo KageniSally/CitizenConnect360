@@ -27,21 +27,7 @@ export class ProfileComponent implements OnInit {
   }
 
   role(){
-    let role=this.user?.role_id
-      
-      if(role==="1"){
-        localStorage.setItem("role","Admin")
-        return "Admin"
-      }else if(role==="2"){
-      localStorage.setItem("role","Government Official")
-      return "Government Official"
-      }
-      else if(role==="3"){
-        localStorage.setItem("role","Normal User")
-        return "Normal User"
-      }else{
-        return "User Not Found"
-      }
+    return this.user?.role
 
       }
   }

@@ -1,6 +1,9 @@
 <div class="main-login">
     <form class="form" [formGroup]="form">
+       
         <h1>Login</h1>
+        <p *ngIf="(success$|async)" class="successMessage">{{success$|async}}</p>
+        <p *ngIf="(error$|async)" class="errorMessage">{{error$|async}}</p>
         <input type="text" placeholder="Email" formControlName="email">
         <span *ngIf="form.get('email')?.touched && !form.get('email')?.valid"><i>Email is requred!!!!</i></span>
         <input type="password" placeholder="Password" formControlName="password">

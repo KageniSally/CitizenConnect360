@@ -6,3 +6,8 @@ export interface Poll{
     votes:number,
     date:string
 }
+
+
+export interface PollResponse{
+    message:string 
+ }

@@ -110,6 +110,8 @@ export async function approveUser(req: Request<{ id: string }>, res: Response) {
         const user = (await dbInstance.execute('getUserId', { id: req.params.id })).recordset[0] as User
         if (user && user.id) {
             await dbInstance.execute('approveUser', { id: req.params.id })
+            console.log(user);
+            
             return res.status(200).json({ message: "User Approved Successfully" })
         }
 

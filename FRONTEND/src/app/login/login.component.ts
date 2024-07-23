@@ -6,6 +6,8 @@ import { AuthService } from '../../Services/auth.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../State';
 import { User } from '../../Models/authModel';
+import { AuthActions } from '../State/Actions/auth.actions';
+import { errorSelector, successSelector } from '../State/Selectors/auth.selector';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +17,10 @@ import { User } from '../../Models/authModel';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  constructor(private fb: FormBuilder,private router:Router,public auth:AuthService) { }
+  constructor(private fb: FormBuilder,private router:Router,private store:Store<AppState>) { }
   form!: FormGroup
+  error$=this.store.select(errorSelector)
+  success$=this.store.select(successSelector)
 
 
 
@@ -31,10 +35,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     console.log(this.form.value)
-    localStorage.setItem("email",this.form.value.email)
-    this.router.navigate([''])
-    this.auth.login()
-    console.log(this.auth.showStatus());
+    this.store.dispatch(AuthActions.login({user:this.form.value}))
 
   
     

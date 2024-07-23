@@ -21,66 +21,51 @@ export class NavbarComponent implements OnInit {
 
 
   ngOnInit() {
-    const email = localStorage.getItem('email');
-    console.log(email);
-    if (email) {
-      this.user = this.auth.getUserByEmail(email) || null;
-      console.log(this.user);
-    }
+    // const email = localStorage.getItem('email');
+    // console.log(email);
+    // if (email) {
+    //   this.user = this.auth.getUserByEmail(email) || null;
+    //   console.log(this.user);
     // }
+    // // }
    
-      // let role = localStorage.getItem("role")
-      // if (role === "Admin") {
-      //   return this.auth.changeRole()
-      // } else if (role === "Government Official" || role === "Normal User") {
-      //   return this.isAdmin
-      // }else{
-      //   return this.isAdmin
-      // }
+    //   // let role = localStorage.getItem("role")
+    //   // if (role === "Admin") {
+    //   //   return this.auth.changeRole()
+    //   // } else if (role === "Government Official" || role === "Normal User") {
+    //   //   return this.isAdmin
+    //   // }else{
+    //   //   return this.isAdmin
+    //   // }
 
-      let role=this.user?.role_id
+    //   let role=this.user?.role_id
         
-      if(role==="1"){
-        localStorage.setItem("role","Admin")
-        return "Admin"
-      }else if(role==="2"){
-      localStorage.setItem("role","Government Official")
-      return "Government Official"
-      }
-      else if(role==="3"){
-        localStorage.setItem("role","Normal User")
-        return "Normal User"
-      }else{
-        return "User Not Found"
-      }
+    //   if(role==="1"){
+    //     localStorage.setItem("role","Admin")
+    //     return "Admin"
+    //   }else if(role==="2"){
+    //   localStorage.setItem("role","Government Official")
+    //   return "Government Official"
+    //   }
+    //   else if(role==="3"){
+    //     localStorage.setItem("role","Normal User")
+    //     return "Normal User"
+    //   }else{
+    //     return "User Not Found"
+    //   }
+    
+    
     }
 
 
 
-    role(){
-      let role=this.user?.role_id
-        
-        if(role==="1"){
-          localStorage.setItem("role","Admin")
-          return "Admin"
-        }else if(role==="2"){
-        localStorage.setItem("role","Government Official")
-        return "Government Official"
-        }
-        else if(role==="3"){
-          localStorage.setItem("role","Normal User")
-          return "Normal User"
-        }else{
-          return "User Not Found"
-        }
-  
-        }
-  
+    
   
 
   navMenu() {
     this.showMenu = !this.showMenu
     // console.log(this.showMenu)
+
 
     if (this.showMenu) {
       const responsiveNavBar = document.querySelector(".responsive-part-two") as HTMLDivElement

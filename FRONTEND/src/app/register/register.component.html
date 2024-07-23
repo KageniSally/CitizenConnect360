@@ -1,8 +1,8 @@
 <div class="main-register">
     <form class="form" [formGroup]="form">
         <h1>Sign Up</h1>
-        <input type="text" placeholder="Username" formControlName="username">
-        <span *ngIf="form.get('username')?.touched && !form.get('username')?.valid"><i>Username is
+        <input type="text" placeholder="Username" formControlName="name">
+        <span *ngIf="form.get('name')?.touched && !form.get('name')?.valid"><i>Username is
                 requred!!!!</i></span>
         <input type="text" placeholder="Email" formControlName="email">
         <span *ngIf="form.get('email')?.touched && !form.get('email')?.valid"><i>Email is requred!!!!</i></span>

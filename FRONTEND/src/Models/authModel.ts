@@ -3,11 +3,18 @@ export interface User{
     name: string,
     email: string,
     password: string,
-    role_id: string,
+    role: string,
     isEmailSent: number,
     isDeleted: number,
     isApproved:number,
     profile_image:string
+}
+
+export interface RegisterRequest{
+    name:string,
+    email:string,
+    password:string,
+    role:string
 }
 
 
@@ -17,7 +24,7 @@ export interface RegisterResponse{
 
 export interface LoginResponse{
     message:string;
-    role_id:number,
+    role:string,
     token:string,
     sub:string
 }

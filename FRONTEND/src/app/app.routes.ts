@@ -33,7 +33,7 @@ export const routes: Routes = [
             { path: ':id', component: OnePollComponent }
         ]
     },
-    { path: 'views', canActivate: [authGuard], component: ViewsComponent },
+    { path: 'views', canActivate:[authGuard], component: ViewsComponent },
     { path: 'view-summary', component: SummaryViewComponent },
 
     {

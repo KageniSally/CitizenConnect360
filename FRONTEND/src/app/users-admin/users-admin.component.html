@@ -1,20 +1,20 @@
 <div class="main-admin-users">
     <div class="table-display">
-        <table *ngIf="users; else noUsers" id="users-table">
+        <table *ngIf="(users$|async); else noUsers" id="users-table">
             <thead>
                 <tr>
-                    <th>UserID</th>
+                    <th>No</th>
                     <th>Username</th>
                     <th>Email</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of users">
-                    <td>{{user.id}}</td>
+                <tr *ngFor="let user of users$ |async ; let i=index">
+                    <td>{{i+1}}</td>
                     <td>{{user.name}}</td>
                     <td>{{user.email}}</td>
-                    <td><i class='bx bxs-trash'></i></td>
+                    <td><i class='bx bxs-trash' (click)="deleteUser(user.id)"></i></td>
                 </tr>
             </tbody>
         </table>

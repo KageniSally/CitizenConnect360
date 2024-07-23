@@ -7,3 +7,8 @@ export interface Incidence {
     date: string,
     contact:string
 }
+
+export interface IncidenceResponse{
+    message:string 
+ }
+ 

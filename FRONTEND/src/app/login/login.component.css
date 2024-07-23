@@ -77,6 +77,17 @@ p {
     text-decoration: none;
 }
 
+.errorMessage{
+    color: red;
+    font-style: italic;
+    font-size: medium;
+}
+.successMessage{
+    color: green;
+    font-style: italic;
+    font-size: medium;
+}
+
 @media only screen and (max-width: 600px) {
     .main-login {
         height: 70vh;

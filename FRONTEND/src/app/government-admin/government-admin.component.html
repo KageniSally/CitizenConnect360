@@ -1,6 +1,6 @@
 <div class="main-admin-government">
     <div class="table-display">
-        <table *ngIf="users; else noUsers">
+        <table *ngIf="(users$|async); else noUsers">
             <thead>
                 <tr>
                     <th>UserID</th>
@@ -10,11 +10,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of users">
-                    <td>{{user.id}}</td>
+                <tr *ngFor="let user of users$ |async let i=index">
+                    <td>{{i+1}}</td>
                     <td>{{user.name}}</td>
                     <td>{{user.email}}</td>
-                    <td><button>Approve</button><i class='bx bxs-trash'></i></td>
+                    <td><button (click)="approveUser(user.id)">Approve</button><i class='bx bxs-trash' (click)="deleteUser(user.id)"></i></td>
                 </tr>
             </tbody>
         </table>

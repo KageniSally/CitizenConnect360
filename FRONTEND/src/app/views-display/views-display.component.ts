@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { View } from '../../Models/viewModel';
+import { AppState } from '../State';
+import { Store } from '@ngrx/store';
+import { viewsSelector } from '../State/Selectors/views.selector';
+import { ViewsActions } from '../State/Actions/views.actions';
 
 @Component({
   selector: 'app-views-display',
@@ -9,47 +13,13 @@ import { View } from '../../Models/viewModel';
   templateUrl: './views-display.component.html',
   styleUrl: './views-display.component.css'
 })
-export class ViewsDisplayComponent {
-  views: View[] = [
-    {
-      id: "23dh",
-      submittedBy: "Sally Gitonga",
-      title: "About the finance bill 2024 and the constitution",
-      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.",
-      date: "08-09-2024"
-    },
-    {
-      id: "23dh",
-      submittedBy: "Sally Gitonga",
-      title: "About the finance bill 2024 and the constitution",
-      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.",
-      date: "08-09-2024"
-    },
-    {
-      id: "23dh",
-      submittedBy: "Sally Gitonga",
-      title: "About the finance bill 2024 and the constitution",
-      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.",
-      date: "08-09-2024"
-    },
-    {
-      id: "23dh",
-      submittedBy: "Sally Gitonga",
-      title: "About the finance bill 2024 and the constitution",
-      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.",
-      date: "08-09-2024"
-    },{
-      id: "23dh",
-      submittedBy: "Sally Gitonga",
-      title: "About the finance bill 2024 and the constitution",
-      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.",
-      date: "08-09-2024"
-    },{
-      id: "23dh",
-      submittedBy: "Sally Gitonga",
-      title: "About the finance bill 2024 and the constitution",
-      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.",
-      date: "08-09-2024"
-    }
-  ]
+export class ViewsDisplayComponent implements OnInit {
+  // views: View[] = []
+  views$=this.store.select(viewsSelector)
+
+  constructor(private store:Store<AppState>){}
+
+ngOnInit(): void {
+  this.store.dispatch(ViewsActions.getViews())
+}
 }

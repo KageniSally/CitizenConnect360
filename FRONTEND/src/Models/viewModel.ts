@@ -5,3 +5,15 @@ export interface View{
     description:string,
     date:string
 }
+
+
+
+export interface ViewRequest{
+    title:string,
+    description:string
+}
+
+
+export interface ViewResponse{
+    message:string 
+ }

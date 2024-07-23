@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AppState } from '../State';
+import { Store } from '@ngrx/store';
+import { ViewsActions } from '../State/Actions/views.actions';
 
 @Component({
   selector: 'app-views-add',
@@ -13,7 +16,8 @@ export class ViewsAddComponent implements OnInit {
 
   form!: FormGroup
 
-  constructor(private fb: FormBuilder) { }
+
+  constructor(private fb: FormBuilder, private store:Store<AppState>) { }
   ngOnInit(): void {
     this.form = new FormGroup({
       title: this.fb.control(null, Validators.required),
@@ -22,6 +26,7 @@ export class ViewsAddComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.form)
+    console.log(this.form.value)
+    this.store.dispatch(ViewsActions.addView({newView:this.form.value}))
   }
 }

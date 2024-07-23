@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../Models/authModel';
-import { AuthService } from '../../Services/auth.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../State';
+import { AuthActions } from '../State/Actions/auth.actions';
+import { usersNotApprovedSelector } from '../State/Selectors/auth.selector';
 
 @Component({
   selector: 'app-government-admin',
@@ -11,12 +13,23 @@ import { AuthService } from '../../Services/auth.service';
   styleUrl: './government-admin.component.css'
 })
 export class GovernmentAdminComponent implements OnInit {
-users:User[]=[]
+  // users:User[]=[]
+
+  users$ = this.store.select(usersNotApprovedSelector)
+  constructor(private store: Store<AppState>) { }
+  ngOnInit(): void {
+    // this.users=this.auth.getUsers()
+    this.store.dispatch(AuthActions.getUsersNotApproved())
+  }
 
 
-constructor(private auth:AuthService){}
-ngOnInit(): void {
-  this.users=this.auth.getUsers()
-}
+  deleteUser(id: string) {
+    this.store.dispatch(AuthActions.deleteUser({ id }));
+  }
 
+
+  approveUser(id:string){
+    this.store.dispatch(AuthActions.updateUserApproval({ id, isApproved: 1 }));
+
+  }
 }
