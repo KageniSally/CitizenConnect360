@@ -1,6 +1,6 @@
-import { createAction, createActionGroup, emptyProps, props } from "@ngrx/store";
+import {  createActionGroup, emptyProps, props } from "@ngrx/store";
 import { LoginRequest, LoginResponse, RegisterRequest, RegisterResponse, User } from "../../../Models/authModel";
-import { AuthInterface } from "../Reducers/auth.reducer";
+
 
 export const AuthActions = createActionGroup({
     source: "AUTH API",
@@ -23,6 +23,11 @@ export const AuthActions = createActionGroup({
         'get users not  approved success': props<{ users: User[] }>(),
         'get users not  approved failure': props<{ message: string }>(),
 
+
+        //Get specific User
+        'get specific user':props<{id:string}>(),
+        'get specific user success':props<{id:string}>(),
+        'get specific user failure':props<{message:string}>(),
 
 
         // Delete user actions

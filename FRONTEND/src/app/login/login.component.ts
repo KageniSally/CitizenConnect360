@@ -8,6 +8,7 @@ import { AppState } from '../State';
 import { User } from '../../Models/authModel';
 import { AuthActions } from '../State/Actions/auth.actions';
 import { errorSelector, successSelector } from '../State/Selectors/auth.selector';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ import { errorSelector, successSelector } from '../State/Selectors/auth.selector
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  constructor(private fb: FormBuilder,private router:Router,private store:Store<AppState>) { }
+  constructor(private fb: FormBuilder,private router:Router,private store:Store<AppState>, private toastr:ToastrService) { }
   form!: FormGroup
   error$=this.store.select(errorSelector)
   success$=this.store.select(successSelector)
@@ -37,8 +38,6 @@ export class LoginComponent implements OnInit {
     console.log(this.form.value)
     this.store.dispatch(AuthActions.login({user:this.form.value}))
 
-  
-    
   
         }
    

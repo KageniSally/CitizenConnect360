@@ -37,7 +37,7 @@ export const routes: Routes = [
     { path: 'view-summary', component: SummaryViewComponent },
 
     {
-        path: 'incidence', canActivate: [authGuard], children: [
+        path: 'incidence', children: [
             { path: '', component: IncidenceDisplayComponent },
             { path: 'add-incidence', component: IncidenceAddComponent }
         ]

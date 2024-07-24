@@ -8,6 +8,15 @@ export interface Incidence {
     contact:string
 }
 
+
+export interface IncidentsRequest{
+    title: string,
+    description: string,
+    image: string,
+    area:string,
+    contact:string
+}
+
 export interface IncidenceResponse{
     message:string 
  }

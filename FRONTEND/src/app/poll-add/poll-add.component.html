@@ -1,16 +1,16 @@
 <div class="main-add-poll">
     <form class="form" [formGroup]="form">
         <h1>Add Poll</h1>
-        <input type="text" placeholder="Title" formControlName="title">
-        <span *ngIf="form.get('title')?.touched && !form.get('title')?.valid"><i>Title is Required!!!!</i></span>
+        <input type="text" placeholder="Title" formControlName="question">
+        <span *ngIf="form.get('question')?.touched && !form.get('question')?.valid"><i>Question is Required!!!!</i></span>
 
-        <div class="add-option">
-            <div class="add-input" formArrayName="options">
-                <div *ngFor="let option of options.controls; let i = index">
-                    <input type="text" placeholder="Option" [formControlName]="i" class="option">
+        <div class="add-options">
+            <div class="add-input" formArrayName="choices">
+                <div *ngFor="let choices of choices.controls; let i = index">
+                    <input type="text" placeholder="Choice" [formControlName]="i" class="option">
                 </div>
             </div>
-            <button (click)="addOption()">Add Option</button>
+            <button (click)="addChoice()">Add Choice</button>
         </div>
 
 

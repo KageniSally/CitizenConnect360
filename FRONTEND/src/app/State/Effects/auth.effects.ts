@@ -6,6 +6,7 @@ import { Injectable } from "@angular/core"
 import { catchError, concatMap, map, mergeMap, of } from "rxjs"
 import { Actions } from "@ngrx/effects"
 import { createEffect, ofType } from "@ngrx/effects"
+import {  ToastrService } from "ngx-toastr"
 
 
 
@@ -14,7 +15,7 @@ import { createEffect, ofType } from "@ngrx/effects"
 
 
 export class AuthEffects {
-    constructor(private actions$: Actions, private auth: AuthService, private router: Router) { }
+    constructor(private actions$: Actions, private auth: AuthService, private router: Router, private toastr:ToastrService) { }
 
     loginUser$ = createEffect(() => {
         return this.actions$.pipe(
@@ -32,12 +33,14 @@ export class AuthEffects {
                     if (res.token) {
                         setTimeout(() => {
                             this.router.navigate([''])
+                           
                         }, 2000)
 
 
                     } else {
                         console.log("Could not find token")
                     }
+                    this.toastr.success(res.message,'Login')
                     return AuthActions.loginSuccess({ response: res })
                 }),
                 catchError(error => of(AuthActions.loginFailure({ message: error.error.message })))
@@ -118,5 +121,18 @@ export class AuthEffects {
           )
         )
       );
+
+
+      getSpecificUser$=(()=>
+        this.actions$.pipe(
+            ofType(AuthActions.getSpecificUser),
+            mergeMap(action=>
+                this.auth.getSpecificUser(action.id).pipe(
+                    map(()=> AuthActions.getSpecificUserSuccess({id:action.id})),
+                    catchError(error=>of(AuthActions.getSpecificUserFailure({message:error.message})))
+                )
+            )
+        )
+    )
 }
 

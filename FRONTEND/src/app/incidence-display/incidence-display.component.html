@@ -4,18 +4,18 @@
         <h6><a routerLink="add-incidence">Add Incidences</a></h6>
     </div>
     <div class="display-container">
-        <div class="inner-display-container" *ngIf="incidences.length; else noIncidences">
-            <div class="each-incidence" *ngFor="let incidence of incidences">
-                <img src="{{incidence.image}}"
+        <div class="inner-display-container" *ngIf="(incidents$ |async); else noIncidences">
+            <div class="each-incidence" *ngFor="let incident of incidents$ |async">
+                <img src="{{incident.image}}"
                     alt="incidence">
                 <div class="details">
-                    <h6 class="title">{{incidence.title}}</h6>
-                    <p>{{incidence.description}}</p>
+                    <h6 class="title">{{incident.title}}</h6>
+                    <p>{{incident.description}}</p>
                 </div>
                 <div class="last-thing-incidence">
-                    <p class="small">{{incidence.date}}</p>
-                    <p class="small">{{incidence.contact}}</p>
-                    <p class="name">By {{incidence.reportedBy}}</p>
+                    <p class="small">{{incident.date}}</p>
+                    <p class="small">{{incident.contact}}</p>
+                    <p class="name">By {{incident.reportedBy}}</p>
                 </div>
             </div>
         </div>

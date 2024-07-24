@@ -10,11 +10,19 @@ import { AuthEffects } from './State/Effects/auth.effects';
 import { authReducer } from './State/Reducers/auth.reducer';
 import { ViewReducer } from './State/Reducers/views.reducer';
 import { ViewsEffects } from './State/Effects/views.effects';
+import { IncidentsReducer } from './State/Reducers/incidents.reducer';
+import { IncidentsEffects } from './State/Effects/incidents.effects';
+import { provideToastr } from 'ngx-toastr';
+import {provideAnimations} from '@angular/platform-browser/animations'
+import { PollReducer } from './State/Reducers/polls.reducer';
+import { PollEffects } from './State/Effects/polls.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
+    provideAnimations(),
+    provideToastr(),
     provideHttpClient(),
-    provideStore({auth: authReducer, views:ViewReducer}),
-    provideEffects([AuthEffects,ViewsEffects]),
+    provideStore({auth: authReducer, views:ViewReducer, incidents:IncidentsReducer,polls:PollReducer}),
+    provideEffects([AuthEffects,ViewsEffects,IncidentsEffects, PollEffects ]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })]
 };

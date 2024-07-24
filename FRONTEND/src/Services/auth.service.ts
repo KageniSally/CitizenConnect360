@@ -29,8 +29,9 @@ export class AuthService {
 
   private isLoggedIn = false
   private isUser = false
-  private readonly BaseURL='http://localhost:1000/users/'
+  private readonly BaseURL = 'http://localhost:1000/users/'
   public isAdmin = false
+  private token = localStorage.getItem('token') as string;
 
   login() {
     this.isLoggedIn = true
@@ -49,45 +50,48 @@ export class AuthService {
   }
 
 
+
   registerUser(newUser: RegisterRequest): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>(this.BaseURL + "register", newUser)
   }
 
   loginUser(user: LoginRequest): Observable<LoginResponse> {
-    console.log("Login Service");
-    
     return this.http.post<LoginResponse>(this.BaseURL + "login", user)
   }
 
 
   getUsersApproved(): Observable<User[]> {
-    const token = localStorage.getItem('token') as string
-    return this.http.get<User[]>(this.BaseURL+"approved/new/approved", {
-      headers: new HttpHeaders({ token: token })
+    return this.http.get<User[]>(this.BaseURL + "approved/new/approved", {
+      headers: new HttpHeaders({ token: this.token })
     })
   }
 
 
   getUsersNotApproved(): Observable<User[]> {
-    const token = localStorage.getItem('token') as string
-    return this.http.get<User[]>(this.BaseURL+"notApproved/new", {
-      headers: new HttpHeaders({ token: token })
+    return this.http.get<User[]>(this.BaseURL + "notApproved/new", {
+      headers: new HttpHeaders({ token: this.token })
     })
   }
 
 
   deleteUser(id: string): Observable<void> {
-    const token = localStorage.getItem('token') as string;
+
     return this.http.delete<void>(`${this.BaseURL}${id}`, {
-      headers: new HttpHeaders({ token: token })
+      headers: new HttpHeaders({ token: this.token })
     });
   }
 
 
   updateUserApproval(id: string, isApproved: number): Observable<void> {
-    const token = localStorage.getItem('token') as string;
+
     return this.http.put<void>(`${this.BaseURL}approve/${id}`, { isApproved }, {
-      headers: new HttpHeaders({ token: token })
+      headers: new HttpHeaders({ token: this.token })
     });
+  }
+
+  getSpecificUser(id: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.BaseURL}${id}`, {
+      headers: new HttpHeaders({ token: this.token })
+    })
   }
 }

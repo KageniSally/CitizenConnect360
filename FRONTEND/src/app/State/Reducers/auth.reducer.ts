@@ -17,6 +17,9 @@ export interface AuthInterface {
     usersGetLoading:boolean,
 
 
+    // getSpecificUserSuccessMessage:User[],
+    // getSpecificUserErrorMessage:str
+
     notApproved:User[],
     notApprovedGetErrorMessage:string,
     notApprovedGetLoading:boolean
