@@ -42,3 +42,13 @@ label{
     align-items: center;
     gap: 5px;
 }
+
+button {
+    color: var(--primary-color);
+    background-color: var(--green);
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+

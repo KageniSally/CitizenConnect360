@@ -27,26 +27,46 @@ export class AuthService {
 
 
 
-  private isLoggedIn = false
-  private isUser = false
+  // private isLoggedIn = false
+  // private isUser = false
   private readonly BaseURL = 'http://localhost:1000/users/'
   public isAdmin = false
   private token = localStorage.getItem('token') as string;
 
-  login() {
-    this.isLoggedIn = true
-  }
+
   logOut() {
-    this.isLoggedIn = false
+   
     localStorage.clear()
     this.router.navigate(['/'])
   }
 
-  showStatus() {
-    return this.isLoggedIn
+  // showStatus() {
+  //   return this.isLoggedIn
+  // }
+  // showUserLinks() {
+  //   return !this.isUser
+  // }
+
+  showStatus(): boolean {
+    return !!localStorage.getItem('token'); 
   }
-  showUserLinks() {
-    return !this.isUser
+
+  // Check if the user has admin privileges
+  showAdminLinks(): boolean {
+    const userRole = localStorage.getItem('role');
+    return userRole === 'Admin'; 
+  }
+
+
+  showUserLinks(): boolean {
+    return this.showStatus(); 
+  }
+
+
+
+  govnAccessOnly():boolean{
+    const role=localStorage.getItem('role')
+    return role==="Government Official"
   }
 
 

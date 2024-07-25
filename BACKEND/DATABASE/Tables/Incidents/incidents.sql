@@ -8,5 +8,6 @@ CREATE TABLE Incidents(
     image VARCHAR(255) NOT NULL,
     contact VARCHAR(255) NOT NULL,
     reportedBy VARCHAR(255) NOT NULL,
+    reporterName VARCHAR(255) 
     FOREIGN KEY (reportedBy) REFERENCES Users(id)
 )

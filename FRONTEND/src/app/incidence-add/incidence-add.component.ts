@@ -31,6 +31,6 @@ ngOnInit(): void {
 onSubmit(){
   console.log(this.form)
   this.store.dispatch(IncidentsActions.addIncidents({newIncidents:this.form.value}))
-  this.form.reset
+  this.form.reset()
 }
 }

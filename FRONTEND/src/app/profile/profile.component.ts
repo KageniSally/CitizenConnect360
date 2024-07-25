@@ -12,24 +12,38 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   user: User | null = null; 
-
+  email!:string
+  name!:string
+  role!:string
   constructor(public auth: AuthService) { }
 
 
   ngOnInit(): void {
-    const email = localStorage.getItem('email');
-    console.log(email);
-    if (email) {
-      this.user = this.auth.getUserByEmail(email) || null;
-      console.log(this.user);
-      
+    if(this.email){
+     
     }
+  
+    const Uname = localStorage.getItem('name');
+    const Urole = localStorage.getItem('role');
+    const Uemail=localStorage.getItem('email')
+
+    if(Uname){
+      this.name=Uname
+    }
+
+
+    if(Uemail){
+      this.email=Uemail
+    }
+
+    if(Urole){
+      this.role=Urole
+    }
+    
+    
+    
   }
 
-  role(){
-    return this.user?.role
-
-      }
-  }
+}
   
 

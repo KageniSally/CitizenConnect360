@@ -3,5 +3,5 @@ CREATE OR ALTER PROCEDURE getUser(
 )
 AS
 BEGIN
-    SELECT * FROM Users WHERE email=@email AND isDeleted=0
+    SELECT * FROM Users WHERE email=@email AND isDeleted=0 AND isApproved=1
 END

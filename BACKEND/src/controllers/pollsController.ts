@@ -4,6 +4,7 @@ import { DBHelper } from '../DBHelpers'
 import { ExtendedRequest1 } from '../Middleware'
 import { log } from 'console'
 import { PollChoices, Polls } from '../Models/polls'
+import { ValidatePoll } from '../Helpers/polls'
 
 
 const dbInstance = new DBHelper
@@ -15,8 +16,13 @@ export async function addPoll(req: ExtendedRequest1, res: Response, next: NextFu
         const id = uid()
         const { question, choices } = req.body
         const createdBy = req.info?.sub
-        // console.log(req.info?.sub);
+        const creatorName=req.info?.name
+  
+        // const { error } = ValidatePoll.validate(req.body)
 
+        // if (error) {
+        //     return res.status(400).json(error.details[0].message)
+        // }
 
 
         try {
@@ -24,7 +30,7 @@ export async function addPoll(req: ExtendedRequest1, res: Response, next: NextFu
 
             console.log(choices)
             if (choices.length) {
-                dbInstance.execute('addPoll', { id, question, createdBy })
+                dbInstance.execute('addPoll', { id, question, createdBy,creatorName })
 
                 for (let choice in choices) {
                     const choiceId = uid()
@@ -79,6 +85,34 @@ export async function getPolls(req: Request, res: Response) {
 
         // Return if there are no polls
         return res.status(400).json({ message: "No polls yet!!!!" });
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+}
+
+// Function to get a specific poll by ID
+export async function getPollById(req: Request, res: Response) {
+    const { id } = req.params;
+
+    try {
+        // Get the specific poll
+        const poll = (await dbInstance.execute('getPoll', { id })).recordset[0] as Polls;
+
+        if (!poll) {
+            return res.status(404).json({ message: "Poll not found" });
+        }
+
+        // Get choices for the specific poll
+        const choices = (await dbInstance.execute('getChoicesForPoll', { pollId: id })).recordset as PollChoices[];
+
+        // Construct the poll object with its choices
+        const pollWithChoices = {
+            ...poll,
+            choices
+        };
+
+        // Return the specific poll with its choices
+        return res.status(200).json(pollWithChoices);
     } catch (error) {
         return res.status(500).json(error);
     }

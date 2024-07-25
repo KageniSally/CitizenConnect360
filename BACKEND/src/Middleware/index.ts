@@ -4,7 +4,7 @@ import { Payload, User } from '../Models/usersModel';
 import dotenv from 'dotenv'
 import path from 'path'
 import { DBHelper } from '../DBHelpers';
-import { Bookings } from '../Models/bookingModel';
+
 dotenv.config({ path: path.resolve(__dirname, "../../.env") })
 
 

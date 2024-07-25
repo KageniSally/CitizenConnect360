@@ -34,10 +34,10 @@ export const routes: Routes = [
         ]
     },
     { path: 'views', canActivate:[authGuard], component: ViewsComponent },
-    { path: 'view-summary', component: SummaryViewComponent },
+    { path: 'view-summary', canActivate:[authGuard], component: SummaryViewComponent },
 
     {
-        path: 'incidence', children: [
+        path: 'incidence', canActivate:[authGuard], children: [
             { path: '', component: IncidenceDisplayComponent },
             { path: 'add-incidence', component: IncidenceAddComponent }
         ]

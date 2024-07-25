@@ -37,6 +37,6 @@ addChoice(): void {
 onSubmit(){
   console.log(this.form)
   this.store.dispatch(PollActions.addPolls({newPoll:this.form.value}))
-  this.form.reset
+  this.form.reset()
 }
 }

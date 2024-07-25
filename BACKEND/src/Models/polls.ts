@@ -1,7 +1,8 @@
 export interface Polls{
     id:string,
     question:string,
-    createdBy:string
+    createdBy:string,
+    creatorName:string
 }
 
 

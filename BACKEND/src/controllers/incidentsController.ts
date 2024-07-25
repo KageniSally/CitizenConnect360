@@ -1,4 +1,5 @@
 import { DBHelper } from "../DBHelpers";
+import { ValidateIncidents } from "../Helpers/incidents";
 import { ExtendedRequest1 } from "../Middleware";
 import { Incidents } from "../Models/incidents";
 import { Request,Response } from "express";
@@ -34,8 +35,17 @@ export async function addIncidence(req:ExtendedRequest1,res:Response) {
     try {
         const id=uid()
         const reportedBy=req.info.sub
+        const reporterName=req.info.name
         const {title,description,area,image,contact}=req.body
-        dbInstance.execute('addIncidence',{id,title,description,area,image,contact,reportedBy})
+
+
+        const { error } = ValidateIncidents.validate(req.body)
+
+        if (error) {
+            return res.status(400).json(error.details[0].message)
+        }
+
+        dbInstance.execute('addIncidence',{id,title,description,area,image,contact,reportedBy, reporterName})
         return res.status(201).json("Incidence created sucessfully")
     } catch (error) {
         return res.status(500).json(error)

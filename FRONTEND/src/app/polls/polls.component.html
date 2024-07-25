@@ -1,17 +1,17 @@
 <div class="main-polls">
-    <div class="add-poll">
+    <div class="add-poll" *ngIf="auth.govnAccessOnly()">
         <button><a routerLink="add-poll">Add Poll</a></button>
     </div>
-    <!-- <div class="all-polls" *ngIf="polls ;else noPolls">
-        <div class="each-poll" *ngFor="let poll of polls" >
+    <div class="all-polls" *ngIf="(polls$ |async) ;else noPolls">
+        <div class="each-poll" *ngFor="let poll of polls$ |async" >
             <h3>{{poll.question}}</h3>
-            <p> Posted on Today</p>
+            <p> {{poll.creatorName}}</p>
             <div class="last-part-poll">
-                <p>{{poll.choices}} people voted</p>
+                <p></p>
                 <i class='bx bx-plus-circle' routerLink="{{poll.id}}" ></i>
             </div>
         </div>
-    </div> -->
+    </div>
 
 
     <ng-template #noPolls><i>Polls not available!!!</i></ng-template>

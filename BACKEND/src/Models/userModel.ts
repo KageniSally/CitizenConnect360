@@ -13,5 +13,6 @@ export interface User {
 export interface Payload {
     sub: string,
     name: string,
-    role:string
+    role:string,
+    email:string
 }

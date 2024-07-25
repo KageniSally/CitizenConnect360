@@ -1,4 +1,4 @@
-import { ValidateRegistration } from "../Helpers"
+import { ValidateLogin, ValidateRegistration } from "../Helpers"
 import { Response, Request } from 'express'
 import { v4 as uid } from 'uuid'
 import Bcrypt from 'bcrypt'
@@ -54,6 +54,11 @@ export async function loginUser(req: Request<{ email: string }>, res: Response) 
         const { email, password } = req.body
         // console.log(req.body)
 
+        const { error } = ValidateLogin.validate(req.body)
+
+        if (error) {
+            return res.status(400).json(error.details[0].message)
+        }
 
         const user = (await dbInstance.execute('getUser', { email: email })).recordset as User[]
 
@@ -69,15 +74,18 @@ export async function loginUser(req: Request<{ email: string }>, res: Response) 
                 const payload: Payload = {
                     sub: user[0].id,
                     name: user[0].name,
-                    role: user[0].role
+                    role: user[0].role,
+                    email:user[0].email
                 }
                 const token = jwt.sign(payload, process.env.SECRET as string, { expiresIn: '2h' })
                 const { role } = payload
                 const { sub } = payload
-                console.log(token);
+                const {email}=payload
+                const {name}=payload
+             
 
 
-                return res.status(200).json({ message: 'Login sucessful!!!!!!!', token, role, sub })
+                return res.status(200).json({ message: 'Login sucessful!!!!!!!', token, role, sub,name,email })
             }
             return res.status(400).json({message:"Invalid Password"})
 

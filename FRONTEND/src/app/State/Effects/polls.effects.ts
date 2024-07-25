@@ -25,4 +25,54 @@ export class PollEffects {
         )
     })
 
+
+
+
+    getPolls$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(PollActions.getPolls),
+            concatMap(req => this.pollService.getPolls().pipe(
+                map(res => {
+                    return PollActions.getPollsSuccess({ polls: res })
+                })
+            )),
+            catchError(error => of(PollActions.getPollsFailure({ message: error })))
+        )
+    })
+
+
+
+    // Effect for getting a specific poll
+    getSpecificPoll$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(PollActions.getSpecificPoll),
+            concatMap(({ id }) =>
+                this.pollService.getSpecificPoll(id).pipe(
+                    map(res => {
+                        return PollActions.getSpecificPollSuccess({ poll: res });
+                    }),
+                    catchError(error => of(PollActions.getSpecificPollFailure({ message: error.message })))
+                )
+            )
+        );
+    });
+
+
+
+    //Add Poll Response
+    addPollResponse$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(PollActions.addPollResponse),
+            concatMap (({newPollResponse}) => this.pollService.addPollResponse(newPollResponse).pipe(
+                map(res =>{
+                    this.toastr.success(res.message,'Success')
+                    return PollActions.addPollResponseSuccess({ response: res })
+                } ),
+                catchError(error => of(PollActions.addPollResponseFailure({message:error})))
+            )
+
+            )
+        )
+    })
+
 }

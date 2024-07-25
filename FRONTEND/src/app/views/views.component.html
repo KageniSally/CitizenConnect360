@@ -1,5 +1,5 @@
 <div class="main-views">
-    <p><a routerLink="/view-summary">View Summary</a></p>
+    <p *ngIf="auth.govnAccessOnly()"><a routerLink="/view-summary" >View Summary</a></p>
     <app-views-display></app-views-display>
     <app-views-add></app-views-add>
 </div>

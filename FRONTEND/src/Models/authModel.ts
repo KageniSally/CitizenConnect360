@@ -26,7 +26,9 @@ export interface LoginResponse{
     message:string;
     role:string,
     token:string,
-    sub:string
+    sub:string,
+    name:string,
+    email:string
 }
 
 export interface LoginRequest{

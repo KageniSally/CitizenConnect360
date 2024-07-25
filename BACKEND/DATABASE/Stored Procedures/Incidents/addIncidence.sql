@@ -5,10 +5,11 @@ CREATE OR ALTER PROCEDURE addIncidence(
     @area VARCHAR(255),
     @image VARCHAR(255),
     @contact VARCHAR(255),
-    @reportedBy VARCHAR(255)
+    @reportedBy VARCHAR(255),
+    @reporterName VARCHAR(255)
 )
 AS 
 BEGIN
-INSERT INTO Incidents(id,title,description,area,image,contact,reportedBy)
-VALUES(@id,@title,@description,@area,@image,@contact,@reportedBy)
+INSERT INTO Incidents(id,title,description,area,image,contact,reportedBy,reporterName)
+VALUES(@id,@title,@description,@area,@image,@contact,@reportedBy, @reporterName)
 END

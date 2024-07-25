@@ -1,6 +1,7 @@
 export interface View{
     id:string,
-    submittedBy:string,
+    user_id:string,
+    user_name:string
     title:string,
     description:string,
     date:string

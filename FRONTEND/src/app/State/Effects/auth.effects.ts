@@ -25,8 +25,10 @@ export class AuthEffects {
                     localStorage.setItem('token', res.token)
                     localStorage.setItem('role', res.role)
                     localStorage.setItem('sub', res.sub)
+                    localStorage.setItem('name', res.name)
+                    localStorage.setItem('email', res.email)
                     console.log(res.message)
-                    this.auth.login()
+                   
                     console.log(!this.auth.showStatus())
                 
 
@@ -43,7 +45,9 @@ export class AuthEffects {
                     this.toastr.success(res.message,'Login')
                     return AuthActions.loginSuccess({ response: res })
                 }),
-                catchError(error => of(AuthActions.loginFailure({ message: error.error.message })))
+                catchError(error =>{
+                    this.toastr.error("Failed to Login")
+                    return of(AuthActions.loginFailure({ message: error.error.message }))})
             )
 
             ))

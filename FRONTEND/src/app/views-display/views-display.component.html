@@ -2,7 +2,7 @@
     <div class="each-view" *ngFor="let view of views$|async">
         <div class="user-deets">
             <i class='bx bxs-user-circle' ></i>
-            <h6>Sally Gitonga</h6>
+            <h6>{{view.user_name}}</h6>
         </div>
         <p class="title">{{view.title}}</p>
         <p>{{view.description}}</p>

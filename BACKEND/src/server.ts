@@ -26,7 +26,7 @@ app.use('/polls',pollRoutes)
 
 
 app.listen(1000,()=>{
-    console.log("CitizenConnect360..............")
+    console.log("CitizenConnect360................")
 })
 
 

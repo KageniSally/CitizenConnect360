@@ -16,3 +16,13 @@ export const ValidateRegistration = Joi.object({
         'string.name': "Please enter valid role"
     }),
 })
+
+export const ValidateLogin = Joi.object({
+    email: Joi.string().required().email().messages({
+        'string.email': "Please enter valid email"
+    }),
+    password: Joi.string().required().messages(
+        { 'any.required': 'Please enter a valid password',
+        'string.empty': 'Please enter a valid password' }
+    )
+})

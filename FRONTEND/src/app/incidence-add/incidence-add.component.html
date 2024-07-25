@@ -9,7 +9,7 @@
         <span *ngIf="form.get('title')?.touched && !form.get('title')?.valid"><i>Title is requred!!!!</i></span>
         <input type="text" placeholder="Description" formControlName="description">
         <span *ngIf="form.get('description')?.touched && !form.get('description')?.valid"><i>Description is requred!!!!</i></span>
-        <input type="file" id="file" placeholder="Choose Image" formControlName="image" >
+        <input type="text" id="file" placeholder="Choose Image" formControlName="image" >
         <span *ngIf="form.get('image')?.touched && !form.get('image')?.valid"><i>Image is requred!!!!</i></span>
         <input type="text" placeholder="Area" formControlName="area">
         <span *ngIf="form.get('area')?.touched && !form.get('area')?.valid"><i>Area is requred!!!!</i></span>

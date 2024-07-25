@@ -25,6 +25,7 @@ export class ViewsService {
     const token=localStorage.getItem('token') as string
     return this.http.get<View[]>(this.BaseURL,{
       headers:new HttpHeaders({token:token})
+      
     })
   }
 

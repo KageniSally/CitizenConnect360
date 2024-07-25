@@ -4,6 +4,7 @@ export interface Incidence {
     description: string,
     image: string,
     reportedBy: string,
+    reporterName:string,
     date: string,
     contact:string
 }

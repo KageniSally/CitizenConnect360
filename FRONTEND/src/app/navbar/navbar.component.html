@@ -8,12 +8,12 @@
         
         <a routerLink="">Home</a>
         <a routerLink="">About</a>
-        <a routerLink="/government-admin" *ngIf="auth.showUserLinks()">Government Official</a>
-        <a routerLink="/users-admin" *ngIf="auth.showUserLinks()">Users</a>
-        <a routerLink="/incidence" *ngIf="auth.showUserLinks()">Incidence Report</a>
-        <a routerLink="/poll" *ngIf="auth.showUserLinks()">Poll</a>
-        <a routerLink="/views" *ngIf="auth.showUserLinks()">Views</a>
-        <a routerLink="/educate" *ngIf="auth.showUserLinks()">Educate</a>
+        <a routerLink="/government-admin" *ngIf="auth.showAdminLinks()">Government Official</a>
+        <a routerLink="/users-admin" *ngIf="auth.showAdminLinks()">Users</a>
+        <a routerLink="/incidence" *ngIf="!auth.showAdminLinks()">Incidence Report</a>
+        <a routerLink="/poll" *ngIf="!auth.showAdminLinks()">Poll</a>
+        <a routerLink="/views" *ngIf="!auth.showAdminLinks()">Views</a>
+        <a routerLink="/educate" *ngIf="!auth.showAdminLinks()">Educate</a>
         <a routerLink="/login" *ngIf="!auth.showStatus()">Login</a>
         <a routerLink="/profile" *ngIf="auth.showStatus()">Profile</a>
         <a *ngIf="auth.showStatus()" (click)="auth.logOut()">Logout</a>
@@ -25,12 +25,12 @@
         
         <a routerLink="">Home</a>
         <a routerLink="">About</a>
-        <a routerLink="/government-admin" *ngIf="auth.showUserLinks()">Government Official</a>
-        <a routerLink="/users-admin" *ngIf="auth.showUserLinks()">Users</a>
-        <a routerLink="/incidence" *ngIf="auth.showUserLinks()">Incidence Report</a>
-        <a routerLink="/poll" *ngIf="auth.showUserLinks()"> Poll</a>
-        <a routerLink="/views" *ngIf="auth.showUserLinks()">Views</a>
-        <a routerLink="/educate" *ngIf="auth.showUserLinks()">Educate</a>
+        <a routerLink="/government-admin" *ngIf="auth.showAdminLinks()">Government Official</a>
+        <a routerLink="/users-admin" *ngIf="auth.showAdminLinks()">Users</a>
+        <a routerLink="/incidence" *ngIf="!auth.showAdminLinks()">Incidence Report</a>
+        <a routerLink="/poll" *ngIf="!auth.showAdminLinks()"> Poll</a>
+        <a routerLink="/views" *ngIf="!auth.showAdminLinks()">Views</a>
+        <a routerLink="/educate" *ngIf="!auth.showAdminLinks()">Educate</a>
         <a routerLink="/login" *ngIf="!auth.showStatus()">Login</a>
         <a routerLink="/profile" *ngIf="auth.showStatus()">Profile</a>
         <a *ngIf="auth.showStatus()" (click)="auth.logOut()">Logout</a>

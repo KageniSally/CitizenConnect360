@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from "@ngrx/store";
-import { Poll, PollRequest, PollResponse } from "../../../Models/pollModel";
+import { onePoll, Poll, PollChoiceResponse, PollRequest, PollResponse, Responses } from "../../../Models/pollModel";
 
 export const PollActions = createActionGroup({
     source: "POLL API",
@@ -11,5 +11,20 @@ export const PollActions = createActionGroup({
 
         'get polls': emptyProps,
         'get polls success': props<{ polls: Poll[] }>(),
-        'get polls failure': props<{ message: string }>()
-    }})
+        'get polls failure': props<{ message: string }>(),
+
+
+
+        //Get specific Poll
+        'get specific poll': props<{ id: string }>(),
+        'get specific poll success': props<{ poll: onePoll }>(),
+        'get specific poll failure': props<{ message: string }>(),
+
+
+        //Add Poll Response
+        'add poll response': props<{ newPollResponse:PollChoiceResponse  }>(),
+        'add poll response success': props<{ response: PollResponse }>(),
+        'add poll response failure': props<{ message: string }>(),
+
+    }
+})

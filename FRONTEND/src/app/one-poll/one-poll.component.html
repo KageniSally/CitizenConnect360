@@ -1,8 +1,15 @@
-<!-- <div class="main-one-poll">
-    <div class="one-poll-container">
-        <h3>{{poll.title}}</h3>
-        <div class="options">
-            <label *ngFor="let choice of poll.choices"><input type="radio" name="option">{{choice}}</label>
-        </div>
+<div class="main-one-poll">
+    <div class="one-poll-container" *ngIf="specificPoll$ | async as specificPoll; else loading">
+        <h3>{{ specificPoll.question }}</h3>
+        <form class="options" >
+            <label *ngFor="let choice of specificPoll.choices">
+                <input type="radio" name="option" (click)="onSubmit(choice.id)" />
+                {{ choice.choice }}
+            </label>
+            <!-- <button>Vote</button> -->
+        </form>
     </div>
-</div> -->
+    <ng-template #loading>
+        <p>Loading...</p>
+    </ng-template>
+</div>

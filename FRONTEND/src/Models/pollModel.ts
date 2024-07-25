@@ -12,16 +12,23 @@ export interface PollRequest{
     question:string,
     choices:string[],
 }
-
 export interface PollResponse{
-    message:string 
+    message:string
+}
+
+export interface onePoll{
+    id:string,
+    question:string,
+    createdBy:string,
+    choices:PollChoices[]
  }
 
 
 export interface Poll{
     id:string,
     question:string,
-    createdBy:string
+    createdBy:string,
+    creatorName:string
 }
 
 
@@ -35,5 +42,11 @@ export interface Responses{
     id:string,
     pollId:string,
     userId:string,
+    pollChoiceId:string
+}
+
+
+export interface PollChoiceResponse{
+    pollId:string,
     pollChoiceId:string
 }

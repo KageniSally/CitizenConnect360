@@ -28,5 +28,6 @@ export class ViewsAddComponent implements OnInit {
   onSubmit(){
     console.log(this.form.value)
     this.store.dispatch(ViewsActions.addView({newView:this.form.value}))
+    this.form.reset()
   }
 }
